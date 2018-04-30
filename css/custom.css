@@ -1,0 +1,26 @@
+.centered {
+	text-align: center;
+}
+
+button {
+	width: 200px;
+}
+
+#countWindow, #readyWindow, #failWindow, #failButton, #failImg, #stressWindow {
+	display: none;
+	margin-top: 10%;
+}
+
+.btn-danger, .btn-warning {
+	height: 100px;
+	width: 400px;
+	font-size: 20px;
+}
+
+.btn-warning {
+	font-size: 40px;
+}
+
+img {
+	width: 500px;
+}
