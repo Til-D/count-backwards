@@ -7,7 +7,7 @@ $( document ).ready(function() {
 	const TIMEOUT = 2 * SECOND;
 	const COUNTSTART = 3;
 	const READYTEXT = "Get ready .";
-	const SHOWFAILIMAGES = false;
+	const SHOWFAILIMAGES = true;
 	const STRESSINTERVAL_MIN = 5 * SECOND;
 	const STRESSINTERVAL_MAX = 25 * SECOND;
 	const STRESS_WINDOW_DURATION = 1 * SECOND;
