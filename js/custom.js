@@ -7,10 +7,13 @@ $( document ).ready(function() {
 	const TIMEOUT = 2 * SECOND;
 	const COUNTSTART = 3;
 	const READYTEXT = "Get ready .";
-	const SHOWFAILIMAGES = true;
 	const STRESSINTERVAL_MIN = 5 * SECOND;
 	const STRESSINTERVAL_MAX = 25 * SECOND;
 	const STRESS_WINDOW_DURATION = 1 * SECOND;
+	const AUDIO_STRESSOR = new Audio ('audio/faster.mp3');
+
+	const SHOWFAILIMAGES = false;
+	const USE_AUDIO_STRESSOR = true;
 
 	var startNumber,
 		decrement,
@@ -105,6 +108,9 @@ $( document ).ready(function() {
   		// show stressor window and hide after timeout, then re-schedules itself
   		stressTimer = setTimeout(function() {
   			$("#stressWindow").show();
+  			if(USE_AUDIO_STRESSOR) {
+  				AUDIO_STRESSOR.play();
+  			}
   			setTimeout(function() {
 				hide_stressor();
 				schedule_stressor();			
