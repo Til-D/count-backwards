@@ -15,7 +15,8 @@ $( document ).ready(function() {
 	var startNumber,
 		decrement,
 		count,
-		inProgress;
+		inProgress,
+		stressTimer;
 	
 
 	$("#btnGo").click(function() {
@@ -94,17 +95,19 @@ $( document ).ready(function() {
 			// $("#instructions").show();			
 			init();
 		}, TIMEOUT);
+		clearInterval(stressTimer);
 	}
 
 	function schedule_stressor() {
   		
   		var stressor_schedule = Math.floor( Math.random() * ( 1 + STRESSINTERVAL_MAX - STRESSINTERVAL_MIN ) ) + STRESSINTERVAL_MIN;
 
-  		// show stressor window and hide after timeout
-  		setTimeout(function() {
+  		// show stressor window and hide after timeout, then re-schedules itself
+  		stressTimer = setTimeout(function() {
   			$("#stressWindow").show();
   			setTimeout(function() {
-				hide_stressor();			
+				hide_stressor();
+				schedule_stressor();			
 	  		}, STRESS_WINDOW_DURATION);
   		}, stressor_schedule);
 
